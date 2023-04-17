@@ -14,3 +14,12 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 
 	move_and_slide()
+	
+func _input(event):
+	if event.is_action_pressed("cast_spell"):
+		var spell_scene = preload("res://Scenes/Spells/Circle/CircleFilled.tscn")
+		var spell = spell_scene.instantiate()
+		spell.direction = get_global_mouse_position() - global_position
+		spell.direction = spell.direction.normalized()
+		spell.global_position = global_position
+		get_parent().add_child(spell)

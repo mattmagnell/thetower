@@ -9,6 +9,7 @@ radius = 5.0
 height = 20.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_bvvuv")
 
@@ -23,8 +24,8 @@ texture = ExtResource("1_hith1")
 hframes = 8
 vframes = 8
 
-[node name="Clothing" type="Sprite2D" parent="."]
-position = Vector2(0, -11)
+[node name="Clothing" type="Sprite2D" parent="CharacterModel"]
+position = Vector2(0, -1)
 texture = ExtResource("3_12yy0")
 hframes = 8
 vframes = 8

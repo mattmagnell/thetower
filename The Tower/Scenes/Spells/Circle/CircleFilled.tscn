@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtydsctortb8v"]
+[gd_scene load_steps=4 format=3 uid="uid://dtydsctortb8v"]
 
+[ext_resource type="Script" path="res://Scripts/CircleFilled.gd" id="1_jqyet"]
 [ext_resource type="Texture2D" uid="uid://c683ajmk35qwx" path="res://Assets/Items/IT001 SpellTest.png" id="1_my5rj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ae70"]
 radius = 5.0
 
-[node name="CircleSpell" type="Node2D"]
+[node name="CircleSpell" type="Node2D" groups=["Spells"]]
+script = ExtResource("1_jqyet")
 
 [node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6ae70")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture_filter = 1
@@ -15,5 +20,4 @@ texture = ExtResource("1_my5rj")
 hframes = 8
 vframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_6ae70")
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
