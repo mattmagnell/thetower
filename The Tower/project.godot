@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="The Tower"
+run/main_scene="res://Scenes/TestChamber.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
