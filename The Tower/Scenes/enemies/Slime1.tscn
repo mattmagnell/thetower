@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://m1jxeueuubsa"]
+
+[ext_resource type="Texture2D" uid="uid://doaa6vg837usv" path="res://Assets/Enemies/Free Sprites 1x.png" id="1_2j34t"]
+[ext_resource type="Script" path="res://Scenes/enemies/enmy1atk.gd" id="2_vev7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xjcg"]
+size = Vector2(13, 9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxv5q"]
+radius = 50.0899
+
+[node name="Slime" type="CharacterBody2D"]
+
+[node name="FreeSprites1x" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2j34t")
+offset = Vector2(0.5, -4)
+hframes = 6
+vframes = 5
+frame = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_0xjcg")
+
+[node name="attackbox" type="Area2D" parent="."]
+script = ExtResource("2_vev7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackbox"]
+shape = SubResource("CircleShape2D_pxv5q")
+
+[connection signal="area_entered" from="attackbox" to="attackbox" method="_on_area_entered"]
