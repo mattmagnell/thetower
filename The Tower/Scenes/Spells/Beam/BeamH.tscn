@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://chpejd702u7rw"]
+
+[ext_resource type="Texture2D" uid="uid://c683ajmk35qwx" path="res://Assets/Items/IT001 SpellTest.png" id="1_ba1yj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6w47"]
+size = Vector2(16, 10)
+
+[node name="BeamHSpell" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+texture = ExtResource("1_ba1yj")
+hframes = 8
+vframes = 8
+frame = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_f6w47")

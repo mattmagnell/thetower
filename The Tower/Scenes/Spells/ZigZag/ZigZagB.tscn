@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtkloemyu1cax"]
+
+[ext_resource type="Texture2D" uid="uid://c683ajmk35qwx" path="res://Assets/Items/IT001 SpellTest.png" id="1_6yuob"]
+
+[node name="ZigZagBSpell" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+texture = ExtResource("1_6yuob")
+hframes = 8
+vframes = 8
+frame = 33
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(5, -4)
+polygon = PackedVector2Array(-13, 3, -13, 6, -10, 9, -5, 4, -3, 8, 2, 2, 2, -3, -2, 3, -5, 0, -9, 4, -12, 4)

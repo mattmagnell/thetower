@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b513d6qo300i4"]
+
+[ext_resource type="Texture2D" uid="uid://c683ajmk35qwx" path="res://Assets/Items/IT001 SpellTest.png" id="1_5nxtn"]
+
+[node name="BeamDLSpell" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+texture = ExtResource("1_5nxtn")
+hframes = 8
+vframes = 8
+frame = 37
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-8, -4, -8, -1, 1, 8, 3, 8, 8, 3, 8, 0, 0, -8, -4, -8)
