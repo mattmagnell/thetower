@@ -21,3 +21,9 @@ frame = 14
 texture_filter = 1
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0xjcg")
+
+[node name="PlayerCast" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
+
+[node name="WallCast" type="RayCast2D" parent="."]
+target_position = Vector2(100, 0)

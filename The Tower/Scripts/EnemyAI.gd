@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name EnemyAI
 
 enum EnemyState {
 	IDLE,
@@ -8,12 +9,7 @@ enum EnemyState {
 }
 
 var state = EnemyState.PATROL
-@onready var initial_position = position
 @onready var player = get_tree().get_nodes_in_group("Player")[0] if get_tree().get_nodes_in_group("Player").size() > 0 else null
-@onready var raycast = $PlayerCast
-@onready var wall_raycast = $WallCast
-
-
 
 const SPEED = 100
 const ACCELERATION = 10
@@ -41,27 +37,17 @@ func idle_logic(_delta):
 	if distance_to_player <= CHASE_DISTANCE:
 		state = EnemyState.CHASE
 
-var returning_to_initial_position = false
-
 func patrol_logic(delta):
-	var target_direction
-	if returning_to_initial_position:
-		target_direction = (initial_position - position).normalized()
-		if position.distance_to(initial_position) < 10:
-			returning_to_initial_position = false
-			patrol_target = position + Vector2(randf_range(-PATROL_DISTANCE, PATROL_DISTANCE), 0)
-	else:
-		target_direction = (patrol_target - position).normalized()
-		if position.distance_to(patrol_target) < 10 or wall_raycast.is_colliding():
-			patrol_target = position + Vector2(randf_range(-PATROL_DISTANCE, PATROL_DISTANCE), 0)
-
+	var target_direction = (patrol_target - position).normalized()
 	velocity = velocity.lerp(target_direction * SPEED, ACCELERATION * delta)
 	move_and_slide()
+
+	if position.distance_to(patrol_target) < 10:
+		patrol_target = position + Vector2(randf_range(-PATROL_DISTANCE, PATROL_DISTANCE), 0)
 
 	var distance_to_player = position.distance_to(player.position)
 	if distance_to_player <= CHASE_DISTANCE:
 		state = EnemyState.CHASE
-
 
 func chase_logic(delta):
 	# Rotate the raycast towards the player
@@ -76,13 +62,13 @@ func chase_logic(delta):
 		move_and_slide()
 	else:
 		state = EnemyState.PATROL
-		returning_to_initial_position = true
 
 	var distance_to_player = position.distance_to(player.position)
 	if distance_to_player <= ATTACK_DISTANCE:
-		state = EnemyState.ATTACK
+			state = EnemyState.ATTACK
 	elif distance_to_player > STOP_CHASE_DISTANCE:
 		state = EnemyState.PATROL
+
 
 func attack_logic(_delta):
 	# Implement attack behavior
@@ -90,6 +76,4 @@ func attack_logic(_delta):
 	var distance_to_player = position.distance_to(player.position)
 	if distance_to_player > ATTACK_DISTANCE:
 		state = EnemyState.CHASE
-
-
 

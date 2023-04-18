@@ -10,6 +10,6 @@ func _physics_process(delta):
 	if global_position.x < 0 or global_position.x > screen_size.x or global_position.y < 0 or global_position.y > screen_size.y:
 		queue_free()
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	queue_free()
 
