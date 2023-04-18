@@ -1,25 +1,135 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+# player variables
+@export var health = 1
+@export var speed = 80
+@export var accel = 8
+@export var friction = 7
+@onready var animation = $AnimationPlayer
+@onready var animationTree = $AnimationTree
+@onready var animationState = animationTree.get("parameters/playback")
 
-func _physics_process(_delta):
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_up", "move_down")
-	var direction = Vector2(direction_x, direction_y)
+# State tree
+var state = MOVE
+enum {
+	MOVE,
+	PICKUP,
+	THROW,
+}
 
-	if direction.length() > 0:
-		direction = direction.normalized() * SPEED
-		velocity = direction
-	else:
-		velocity = Vector2.ZERO
+# spell variables
+@export var spell_speed = 250
+var base_spell = preload("res://Scenes/Spells/Circle/CircleFilled.tscn")
+var has_mana = false
+var max_mana = 2
+var mana_amount = 0
+@onready var manaPool
+var in_manaPool = false
 
-	move_and_slide()
+################
+# MAIN PROCESS #
+################
+func _ready():
+	animationTree.active = true 
+	print(mana_amount)
+	print(in_manaPool)
 	
-func _input(event):
-	if event.is_action_pressed("cast_spell"):
-		var spell_scene = preload("res://Scenes/Spells/Circle/CircleFilled.tscn")
-		var spell = spell_scene.instantiate()
-		spell.direction = get_global_mouse_position() - global_position
-		spell.direction = spell.direction.normalized()
-		spell.global_position = global_position
-		get_parent().add_child(spell)
+func _process(_delta):
+	death()
+	
+func _physics_process(_delta):
+	match state:
+		MOVE:
+			wasd_move()
+			mouse_look()
+		PICKUP:
+			grab_snowball()
+		THROW:
+			throw_ball()
+			mouse_look()
+			
+##################
+# Player Methods #
+##################
+# Input Movement #
+func wasd_move():
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_direction = input_direction.normalized()
+	
+	if input_direction != Vector2.ZERO:
+		animationTree.set("parameters/walk/blend_position", input_direction)
+		animationState.travel("walk")
+		velocity = velocity.move_toward(input_direction * speed, accel)
+	else:
+		animationState.travel("idle")
+		velocity = velocity.move_toward(Vector2.ZERO, friction)
+	move_and_slide()
+		
+# Aiming #
+func mouse_look():
+	var node_ref = $CharacterModel
+	var pos_player = node_ref.get_global_position()
+	var pos_mouse = get_global_mouse_position()
+	var direction = (pos_mouse - pos_player).normalized()
+	var sight_direction = (pos_mouse - pos_player).limit_length(50)
+	
+	if Input.is_action_pressed("mouse_look"):
+		animationTree.set("parameters/idle/blend_position", direction)
+		animationTree.set("parameters/walk/blend_position", direction)
+			
+		# Change to throw state
+		if Input.is_action_just_pressed("cast_spell"):
+			state = THROW
+			
+		# idle animation
+# Throw snowball start #
+func throw_ball():
+	animationState.travel("throw")
+
+# Instance snowball #
+func throw_animation():
+	var node_ref = $"Snowball-Point"
+	var pos_player = node_ref.get_global_position()
+	var pos_mouse = get_global_mouse_position()
+	var direction = (pos_mouse - pos_player).normalized()
+	
+	state = THROW
+	
+	if has_mana:
+		var baseSpell_instance = base_spell.instance()
+		baseSpell_instance.position = pos_player
+		baseSpell_instance.apply_impulse(Vector2(), direction * spell_speed)
+		get_tree().get_root().add_child(baseSpell_instance)
+		mana_amount -= 1
+		if mana_amount == 0:
+			has_mana = false
+	else:
+		print("No snowball made")
+
+# Throw snowball finished #
+func throw_animation_finished():
+	if Input.is_action_pressed("throw_projectile"):
+		throw_ball()
+	else:
+		state = MOVE
+		velocity = Vector2.ZERO
+	
+# Pick up snowball start #
+func grab_snowball():
+	animationState.travel("make_ball")
+				
+# Pick up snowball finished #
+func grab_snowball_animation_finished():
+	mana_amount += 1
+	has_mana = true
+	if Input.is_action_pressed("grab_snowball") and mana_amount < max_mana:
+		grab_snowball()
+	else:
+		state = MOVE
+		velocity = Vector2.ZERO
+		
+# TODO: Implement dying animation
+func death():
+	if health == 0:
+		self.queue_free()
+		get_tree().reload_current_scene()

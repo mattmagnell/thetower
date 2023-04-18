@@ -13,12 +13,10 @@ var state = EnemyState.PATROL
 @onready var raycast = $PlayerCast
 @onready var wall_raycast = $WallCast
 
-
-
 const SPEED = 100
 const ACCELERATION = 10
 const PATROL_DISTANCE = 200
-const CHASE_DISTANCE = 300
+const CHASE_DISTANCE = 200
 const ATTACK_DISTANCE = 20
 const STOP_CHASE_DISTANCE = 200
 
@@ -47,7 +45,7 @@ func patrol_logic(delta):
 	var target_direction
 	if returning_to_initial_position:
 		target_direction = (initial_position - position).normalized()
-		if position.distance_to(initial_position) < 10:
+		if target_direction == initial_position:
 			returning_to_initial_position = false
 			patrol_target = position + Vector2(randf_range(-PATROL_DISTANCE, PATROL_DISTANCE), 0)
 	else:
