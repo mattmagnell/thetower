@@ -19,13 +19,15 @@ shape = SubResource("CapsuleShape2D_nhv85")
 
 [node name="CharacterModel" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -10)
 texture = ExtResource("1_hith1")
+offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
+metadata/_edit_group_ = true
 
 [node name="Clothing" type="Sprite2D" parent="CharacterModel"]
-position = Vector2(0, -1)
+z_index = 1
 texture = ExtResource("3_12yy0")
+offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
