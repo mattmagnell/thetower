@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 # player variables
 @export var health = 1
-@export var speed = 80
+@export var speed = 150
 @export var accel = 8
-@export var friction = 7
+@export var friction = 10
 @onready var animation = $AnimationPlayer
 @onready var animationTree = $AnimationTree
 @onready var animationState = animationTree.get("parameters/playback")
@@ -43,9 +43,9 @@ func _physics_process(_delta):
 			wasd_move()
 			mouse_look()
 		PICKUP:
-			grab_snowball()
+			pass
 		THROW:
-			throw_ball()
+			pass
 			mouse_look()
 			
 ##################
@@ -57,6 +57,7 @@ func wasd_move():
 	input_direction = input_direction.normalized()
 	
 	if input_direction != Vector2.ZERO:
+		animationTree.set("parameters/idle/blend_position", input_direction)
 		animationTree.set("parameters/walk/blend_position", input_direction)
 		animationState.travel("walk")
 		velocity = velocity.move_toward(input_direction * speed, accel)
@@ -82,9 +83,6 @@ func mouse_look():
 			state = THROW
 			
 		# idle animation
-# Throw snowball start #
-func throw_ball():
-	animationState.travel("throw")
 
 # Instance snowball #
 func throw_animation():
@@ -106,28 +104,6 @@ func throw_animation():
 	else:
 		print("No snowball made")
 
-# Throw snowball finished #
-func throw_animation_finished():
-	if Input.is_action_pressed("throw_projectile"):
-		throw_ball()
-	else:
-		state = MOVE
-		velocity = Vector2.ZERO
-	
-# Pick up snowball start #
-func grab_snowball():
-	animationState.travel("make_ball")
-				
-# Pick up snowball finished #
-func grab_snowball_animation_finished():
-	mana_amount += 1
-	has_mana = true
-	if Input.is_action_pressed("grab_snowball") and mana_amount < max_mana:
-		grab_snowball()
-	else:
-		state = MOVE
-		velocity = Vector2.ZERO
-		
 # TODO: Implement dying animation
 func death():
 	if health == 0:
