@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://m1jxeueuubsa"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Texture2D" uid="uid://doaa6vg837usv" path="res://Assets/Enemies/Free Sprites 1x.png" id="1_2j34t"]
-[ext_resource type="Script" path="res://Scenes/enemies/Slime1.gd" id="1_bnmt2"]
+[ext_resource type="Script" path="res://Scripts/Slime1.gd" id="1_bnmt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xjcg"]
 size = Vector2(13, 9)

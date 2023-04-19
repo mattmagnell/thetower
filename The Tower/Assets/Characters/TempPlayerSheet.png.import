@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwqfsr1km870r"
-path="res://.godot/imported/char_a_p1_1out_undi_v01.png-9d9c300e515f7043d656c8a492c60cce.ctex"
+uid="uid://c7ritfx4bygib"
+path="res://.godot/imported/TempPlayerSheet.png-60165cc1edf89340010e73241a82b861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Character/char_a_p1_1out_undi_v01.png"
-dest_files=["res://.godot/imported/char_a_p1_1out_undi_v01.png-9d9c300e515f7043d656c8a492c60cce.ctex"]
+source_file="res://Assets/Characters/TempPlayerSheet.png"
+dest_files=["res://.godot/imported/TempPlayerSheet.png-60165cc1edf89340010e73241a82b861.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=0
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

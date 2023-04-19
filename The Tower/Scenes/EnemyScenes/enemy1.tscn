@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Texture2D" uid="uid://davxq4vnbee8j" path="res://icon.svg" id="1_3erdg"]
+[ext_resource type="Script" path="res://Scripts/enemy1.gd" id="1_n5mqf"]
+[ext_resource type="Script" path="res://Scripts/enmy1atk.gd" id="2_ubkvn"]
+[ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="4_bpcp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xjcg"]
+size = Vector2(21, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxv5q"]
+radius = 50.0899
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcrr7"]
+size = Vector2(21, 21)
+
+[node name="enemy1" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 16
+script = ExtResource("1_n5mqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5.96046e-08)
+scale = Vector2(0.171875, 0.167969)
+texture = ExtResource("1_3erdg")
+offset = Vector2(5.81818, -5.95348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_0xjcg")
+
+[node name="attackbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_ubkvn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackbox"]
+shape = SubResource("CircleShape2D_pxv5q")
+
+[node name="hurtbox" type="Area2D" parent="."]
+script = ExtResource("4_bpcp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_vcrr7")
+debug_color = Color(0.788235, 0, 0.623529, 0.419608)
+
+[connection signal="area_entered" from="attackbox" to="attackbox" method="_on_area_entered"]
+[connection signal="body_entered" from="attackbox" to="attackbox" method="_on_body_entered"]

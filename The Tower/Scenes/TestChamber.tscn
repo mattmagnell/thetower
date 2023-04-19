@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyiybi11ls0l"]
+[gd_scene load_steps=13 format=3 uid="uid://6hnnu6v50oj5"]
 
 [ext_resource type="Texture2D" uid="uid://jbk65ousrtcn" path="res://Assets/Terrain/TX Tileset Grass.png" id="1_gbvkd"]
 [ext_resource type="Texture2D" uid="uid://cq2nfxrgtuuf2" path="res://Assets/Terrain/TX Tileset Stone Ground.png" id="2_6kqkq"]
 [ext_resource type="Texture2D" uid="uid://bg57idvo45cyb" path="res://Assets/Terrain/TX Tileset Wall.png" id="3_404vw"]
-[ext_resource type="PackedScene" uid="uid://d0ai70gridm1m" path="res://Scenes/enemies/enemy1.tscn" id="4_ix43j"]
-[ext_resource type="PackedScene" uid="uid://b2i8ftxkov5hr" path="res://Scenes/Player.tscn" id="5_45lrb"]
-[ext_resource type="PackedScene" uid="uid://m1jxeueuubsa" path="res://Scenes/enemies/Slime1.tscn" id="6_s1nqe"]
+[ext_resource type="PackedScene" path="res://Scenes/EnemyScenes/enemy1.tscn" id="4_ix43j"]
+[ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="5_45lrb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
 
@@ -850,8 +849,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_gdwsd"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 16
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_td1t6")
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_k0dcg")
@@ -861,7 +860,7 @@ sources/3 = SubResource("TileSetAtlasSource_ld3c4")
 
 [node name="TestChamber" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["Environment"]]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_gdwsd")
 cell_quadrant_size = 32
@@ -893,9 +892,8 @@ layer_3/tile_data = PackedInt32Array(1245219, 851970, 4, 1245184, 786434, 4, 196
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_45lrb")]
 position = Vector2(341, 409)
+collision_mask = 2
 
-[node name="enemy1" parent="." instance=ExtResource("4_ix43j")]
-position = Vector2(613, 419)
-
-[node name="Slime" parent="." instance=ExtResource("6_s1nqe")]
-position = Vector2(815, 425)
+[node name="enemy1" parent="." groups=["Enemy"] instance=ExtResource("4_ix43j")]
+position = Vector2(398, 240)
+script = null

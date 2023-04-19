@@ -1,8 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://b2i8ftxkov5hr"]
+[gd_scene load_steps=29 format=3]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bvvuv"]
-[ext_resource type="Texture2D" uid="uid://c7ritfx4bygib" path="res://Assets/Character/TempPlayerSheet.png" id="1_hith1"]
-[ext_resource type="Texture2D" uid="uid://cie46lk63pb8a" path="res://Assets/Character/char_a_p1_1out_fstr_v04.png" id="3_12yy0"]
+[ext_resource type="Texture2D" uid="uid://c7ritfx4bygib" path="res://Assets/Characters/TempPlayerSheet.png" id="1_hith1"]
+[ext_resource type="Texture2D" uid="uid://cie46lk63pb8a" path="res://Assets/Characters/char_a_p1_1out_fstr_v04.png" id="3_12yy0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nhv85"]
 radius = 5.0
@@ -34,6 +34,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [32]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, -8)]
+}
 
 [sub_resource type="Animation" id="Animation_35wh2"]
 resource_name = "idle_down"
@@ -62,6 +74,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-5, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_ge530"]
@@ -92,6 +116,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [24]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-5, -9)]
+}
 
 [sub_resource type="Animation" id="Animation_l6vck"]
 resource_name = "idle_right"
@@ -120,6 +156,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-1, -7)]
 }
 
 [sub_resource type="Animation" id="Animation_p57ai"]
@@ -150,6 +198,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [8]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(5, -8)]
+}
 
 [sub_resource type="Animation" id="Animation_t1ykd"]
 resource_name = "moveDown"
@@ -178,6 +238,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [32, 33, 34, 35, 36, 37]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-6, -9), Vector2(-5, -7), Vector2(-2, -7), Vector2(-5, -7), Vector2(-6, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_24wwq"]
@@ -208,6 +280,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [56, 57, 58, 59, 60, 61]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, -10), Vector2(0, -11), Vector2(4, -10), Vector2(3, -10), Vector2(-4, -9), Vector2(-5, -10)]
+}
 
 [sub_resource type="Animation" id="Animation_jvuls"]
 resource_name = "moveRight"
@@ -237,6 +321,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [48, 49, 50, 51, 52, 53]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-3, -7), Vector2(2, -7), Vector2(5, -9), Vector2(3, -8.5), Vector2(-2, -8), Vector2(-6, -8), Vector2(-3, -7)]
+}
 
 [sub_resource type="Animation" id="Animation_fa4r1"]
 resource_name = "moveUp"
@@ -265,6 +361,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [40, 41, 42, 43, 44, 45]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpellPoint:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, -7), Vector2(7, -8), Vector2(6, -9), Vector2(5, -10), Vector2(5, -9), Vector2(7, -9), Vector2(5, -7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_my5d0"]
@@ -346,6 +454,7 @@ graph_offset = Vector2(276.547, -32.8157)
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 texture_filter = 1
+collision_mask = 6
 script = ExtResource("1_bvvuv")
 speed = 125
 accel = 15
@@ -361,6 +470,7 @@ texture = ExtResource("1_hith1")
 offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
+frame = 45
 metadata/_edit_group_ = true
 
 [node name="Clothing" type="Sprite2D" parent="CharacterModel"]
@@ -369,6 +479,7 @@ texture = ExtResource("3_12yy0")
 offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
+frame = 45
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -383,3 +494,6 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jeur3")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0.000717878, 0.699346)
+
+[node name="SpellPoint" type="Marker2D" parent="."]
+position = Vector2(7, -9)
