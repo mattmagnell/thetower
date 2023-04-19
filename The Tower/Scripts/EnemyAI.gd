@@ -50,24 +50,7 @@ func patrol_logic(delta):
 		state = EnemyState.CHASE
 
 func chase_logic(delta):
-	# Rotate the raycast towards the player
-	raycast.rotation = (player.position - position).angle()
-
-	# Check if the raycast is colliding with the player
-	var sees_player = raycast.is_colliding() and raycast.get_collider() == player
-
-	if sees_player:
-		var target_direction = (player.position - position).normalized()
-		velocity = velocity.lerp(target_direction * SPEED, ACCELERATION * delta)
-		move_and_slide()
-	else:
-		state = EnemyState.PATROL
-
-	var distance_to_player = position.distance_to(player.position)
-	if distance_to_player <= ATTACK_DISTANCE:
-			state = EnemyState.ATTACK
-	elif distance_to_player > STOP_CHASE_DISTANCE:
-		state = EnemyState.PATROL
+	pass
 
 
 func attack_logic(_delta):

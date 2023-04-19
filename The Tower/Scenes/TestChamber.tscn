@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://jbk65ousrtcn" path="res://Assets/Terrain/TX Tileset Grass.png" id="1_gbvkd"]
 [ext_resource type="Texture2D" uid="uid://cq2nfxrgtuuf2" path="res://Assets/Terrain/TX Tileset Stone Ground.png" id="2_6kqkq"]
 [ext_resource type="Texture2D" uid="uid://bg57idvo45cyb" path="res://Assets/Terrain/TX Tileset Wall.png" id="3_404vw"]
-[ext_resource type="PackedScene" path="res://Scenes/EnemyScenes/enemy1.tscn" id="4_ix43j"]
 [ext_resource type="PackedScene" path="res://Scenes/Player.tscn" id="5_45lrb"]
+[ext_resource type="PackedScene" uid="uid://csb8r0xsabd6g" path="res://Scenes/EnemyScenes/Slime1.tscn" id="5_b6op0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
 
@@ -893,7 +893,9 @@ layer_3/tile_data = PackedInt32Array(1245219, 851970, 4, 1245184, 786434, 4, 196
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("5_45lrb")]
 position = Vector2(341, 409)
 collision_mask = 2
+spell_speed = 500
 
-[node name="enemy1" parent="." groups=["Enemy"] instance=ExtResource("4_ix43j")]
-position = Vector2(398, 240)
-script = null
+[node name="Slime" parent="." instance=ExtResource("5_b6op0")]
+position = Vector2(239, 238)
+collision_layer = 2
+collision_mask = 21

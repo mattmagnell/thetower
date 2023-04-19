@@ -1,93 +1,56 @@
 extends CharacterBody2D
 
-enum EnemyState {
-	IDLE,
+class_name Slime
+
+# States
+enum {
 	PATROL,
-	CHASE,
-	ATTACK
+	SPLIT,
 }
 
-var state = EnemyState.PATROL
-@onready var initial_position = position
-@onready var player = get_tree().get_nodes_in_group("Player")[0] if get_tree().get_nodes_in_group("Player").size() > 0 else null
-@onready var raycast = $PlayerCast
-@onready var wall_raycast = $WallCast
+var state = PATROL
 
-const SPEED = 100
-const ACCELERATION = 10
-const PATROL_DISTANCE = 200
-const CHASE_DISTANCE = 200
-const ATTACK_DISTANCE = 20
-const STOP_CHASE_DISTANCE = 200
+# Patrol
+var patrol_points = []
+var current_patrol_point = 0
+var speed = 100
 
-@onready var patrol_target = position + Vector2(PATROL_DISTANCE, 0)
+# Signal to hurt player
+signal slime_hit_player
+
+func _ready():
+	# Define patrol points
+	patrol_points = [global_position + Vector2(-100, 0), global_position + Vector2(100, 0)]
+	set_state(PATROL)
 
 func _physics_process(delta):
-	if player != null:
-		match state:
-			EnemyState.IDLE:
-				idle_logic(delta)
-			EnemyState.PATROL:
-				patrol_logic(delta)
-			EnemyState.CHASE:
-				chase_logic(delta)
-			EnemyState.ATTACK:
-				attack_logic(delta)
+	match state:
+		PATROL:
+			patrol(delta)
+		SPLIT:
+			pass
 
-func idle_logic(_delta):
-	var distance_to_player = position.distance_to(player.position)
-	if distance_to_player <= CHASE_DISTANCE:
-		state = EnemyState.CHASE
+func set_state(new_state):
+	state = new_state
 
-var returning_to_initial_position = false
-
-func patrol_logic(delta):
-	var target_direction
-	if returning_to_initial_position:
-		target_direction = (initial_position - position).normalized()
-		if target_direction == initial_position:
-			returning_to_initial_position = false
-			patrol_target = position + Vector2(randf_range(-PATROL_DISTANCE, PATROL_DISTANCE), 0)
+func patrol(_delta):
+	var target = patrol_points[current_patrol_point]
+	var direction = (target - global_position).normalized()
+	var distance_to_target = global_position.distance_to(target)
+	
+	if distance_to_target > 5:
+		velocity = direction * speed
 	else:
-		target_direction = (patrol_target - position).normalized()
-		if position.distance_to(patrol_target) < 10 or wall_raycast.is_colliding():
-			patrol_target = position + Vector2(randf_range(-PATROL_DISTANCE, PATROL_DISTANCE), 0)
+		velocity = Vector2.ZERO
+		current_patrol_point = (current_patrol_point + 1) % patrol_points.size()
 
-	velocity = velocity.lerp(target_direction * SPEED, ACCELERATION * delta)
-	move_and_slide()
+func _on_MovementTimer_timeout():
+	current_patrol_point = (current_patrol_point + 1) % patrol_points.size()
 
-	var distance_to_player = position.distance_to(player.position)
-	if distance_to_player <= CHASE_DISTANCE:
-		state = EnemyState.CHASE
-
-
-func chase_logic(delta):
-	# Rotate the raycast towards the player
-	raycast.rotation = (player.position - position).angle()
-
-	# Check if the raycast is colliding with the player
-	var sees_player = raycast.is_colliding() and raycast.get_collider() == player
-
-	if sees_player:
-		var target_direction = (player.position - position).normalized()
-		velocity = velocity.lerp(target_direction * SPEED, ACCELERATION * delta)
-		move_and_slide()
-	else:
-		state = EnemyState.PATROL
-		returning_to_initial_position = true
-
-	var distance_to_player = position.distance_to(player.position)
-	if distance_to_player <= ATTACK_DISTANCE:
-		state = EnemyState.ATTACK
-	elif distance_to_player > STOP_CHASE_DISTANCE:
-		state = EnemyState.PATROL
-
-func attack_logic(_delta):
-	# Implement attack behavior
-	# (add your attack logic here)
-	var distance_to_player = position.distance_to(player.position)
-	if distance_to_player > ATTACK_DISTANCE:
-		state = EnemyState.CHASE
-
-
+func _on_Slime_body_entered(body):
+	if body.is_in_group("Player"):
+		body.health -= 1
+		emit_signal("slime_hit_player")
+	elif body.is_in_group("Projectile"):
+		set_state(SPLIT)
 

@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://csb8r0xsabd6g"]
+[gd_scene load_steps=4 format=3 uid="uid://btjiltgngjx6q"]
 
-[ext_resource type="Texture2D" uid="uid://doaa6vg837usv" path="res://Assets/Enemies/Free Sprites 1x.png" id="1_2j34t"]
-[ext_resource type="Script" path="res://Scripts/Slime1.gd" id="1_bnmt2"]
+[ext_resource type="Script" path="res://Scripts/Slime1.gd" id="1_nys2w"]
+[ext_resource type="Texture2D" uid="uid://doaa6vg837usv" path="res://Assets/Enemies/Free Sprites 1x.png" id="2_k2uux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xjcg"]
 size = Vector2(13, 9)
 
 [node name="Slime" type="CharacterBody2D"]
-script = ExtResource("1_bnmt2")
+script = ExtResource("1_nys2w")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, 4)
-texture = ExtResource("1_2j34t")
+texture = ExtResource("2_k2uux")
 offset = Vector2(0.5, -8)
 hframes = 6
 vframes = 5
@@ -27,5 +27,3 @@ shape = SubResource("RectangleShape2D_0xjcg")
 wait_time = 0.5
 one_shot = true
 autostart = true
-
-[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
