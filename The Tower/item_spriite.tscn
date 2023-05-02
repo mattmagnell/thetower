@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj4jv8ch4hukt"]
+[gd_scene load_steps=2 format=3 uid="uid://dj4jv8ch4hukt"]
 
 [ext_resource type="Script" path="res://ItemSpriite.gd" id="1_xjuto"]
-[ext_resource type="Resource" uid="uid://bwbfwhrkxqw2q" path="res://Items/Repo/mana_potion.tres" id="2_u0vya"]
 
 [node name="ItemSpriite" type="TextureRect"]
 script = ExtResource("1_xjuto")
-MY_ITEM = ExtResource("2_u0vya")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_right = 1.0
+bbcode_enabled = true

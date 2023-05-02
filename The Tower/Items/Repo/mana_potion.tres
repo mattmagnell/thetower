@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_3in1n")
-MANA_RESTORED = 1
-ITEM_NAME = "Mana"
+MANA_RESTORED = 0
+ITEM_NAME = ""
 ITEM_TEXTURE = ExtResource("1_xqpf4")
 QUANTITY = 0
 HOVER_TEXT = "A sip of mana. "

@@ -9,10 +9,15 @@ func addQuantity(addedQuant : int):
 	MY_ITEM.addQuantity(addedQuant)
 	
 func _setItem(newItem : Resource):
+	if newItem == null:
+		print("Error: No item resource provided.")
+		return
+	
 	print("setting item!")
 	MY_ITEM = newItem 
 	self.texture = MY_ITEM.getTexture()
-	$RichTextLabel.bbcode_text = str(newItem.getQuantity())
+	if MyLabel != null:
+		MyLabel.text = str(newItem.getQuantity())
 	
 	
 	
