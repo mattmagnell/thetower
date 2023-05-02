@@ -1,19 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://b413heuf4now8"]
+[gd_scene load_steps=3 format=3 uid="uid://b413heuf4now8"]
 
 [ext_resource type="Script" path="res://Items/Repo/ITEM_SPRITE.gd" id="1_0vap0"]
+[ext_resource type="Resource" uid="uid://dtsqwyai1w8p1" path="res://Items/Repo/mana_potion.tres" id="2_7cenb"]
 
 [node name="ITEM_SPRITE" type="TextureRect"]
 anchors_preset = -1
 anchor_left = 0.046
-anchor_right = 0.082
-anchor_bottom = 0.081
+anchor_right = 0.048
+anchor_bottom = 0.006
 offset_left = -1.992
 offset_top = -2.0
-offset_right = 1.536
-offset_bottom = 8.512
+offset_right = 11.704
+offset_bottom = 10.112
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0vap0")
+MY_ITEM = ExtResource("2_7cenb")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1

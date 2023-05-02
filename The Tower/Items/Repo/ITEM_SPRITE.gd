@@ -2,9 +2,7 @@
 extends TextureRect
 
 @export var MY_ITEM : Resource :
-	set (_ITEM):
-		_setItem(MY_ITEM)
-	get:
+	set = _setItem
 		
 		
 		
@@ -17,5 +15,5 @@ func addQuantity(addedQuant : int):
 func _setItem(newItem : Resource):
 	print("setting item!")
 	MY_ITEM = newItem 
-	self.Texture = MY_ITEM
+	self.Texture = MY_ITEM.getTexture()
 	$RichTextLabel.bbcode_text = newItem.getQuantity()

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ARMOR_ITEM" load_steps=2 format=3 uid="uid://cu1ihsmggbfs6"]
+[gd_resource type="Resource" script_class="ARMOR_ITEM" load_steps=2 format=3 uid="uid://wj3l25opli21"]
 
-[ext_resource type="Script" path="res://Items/Classes/aromor_item_class.gd" id="1_8wu6w"]
+[ext_resource type="Script" path="res://Items/Classes/armor_item_class.gd" id="1_ob32m"]
 
 [resource]
-script = ExtResource("1_8wu6w")
+script = ExtResource("1_ob32m")
 DEFENSE = 0
 MANA_REDUCTION = 0
 ITEM_NAME = ""
