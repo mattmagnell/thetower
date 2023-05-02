@@ -1,6 +1,5 @@
 @tool
 extends Resource
-
 class_name ITEM
 
 @export var ITEM_NAME : String 
