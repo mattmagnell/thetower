@@ -12,4 +12,10 @@ func _setItem(newItem : Resource):
 	print("setting item!")
 	MY_ITEM = newItem 
 	self.texture = MY_ITEM.getTexture()
-	$RichTextLabel.bbcode_text = newItem.getQuantity()
+	$RichTextLabel.bbcode_text = str(newItem.getQuantity())
+	
+	
+	
+	
+	
+	

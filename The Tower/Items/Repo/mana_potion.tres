@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MAGIC_ITEM" load_steps=3 format=3 uid="uid://dtsqwyai1w8p1"]
+[gd_resource type="Resource" script_class="MAGIC_ITEM" load_steps=3 format=3 uid="uid://bwbfwhrkxqw2q"]
 
 [ext_resource type="Texture2D" uid="uid://3wymxu6xgvq8" path="res://Items/Repo/assets/mana_potion.png" id="1_xqpf4"]
 [ext_resource type="Script" path="res://Items/Classes/magic_item_class.gd" id="2_3in1n"]
@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_3in1n")
 MANA_RESTORED = 1
-ITEM_NAME = ""
+ITEM_NAME = "Mana"
 ITEM_TEXTURE = ExtResource("1_xqpf4")
 QUANTITY = 0
 HOVER_TEXT = "A sip of mana. "

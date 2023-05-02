@@ -12,7 +12,7 @@ class_name ITEM
 func addQuantity(addedQuant : int):
 	QUANTITY += addedQuant
 	
-func getTexture() -> Texture:
+func getTexture() -> Texture2D:
 	return ITEM_TEXTURE
 func getQuantity() -> int:
 	return QUANTITY 
