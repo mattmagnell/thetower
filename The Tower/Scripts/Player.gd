@@ -28,7 +28,7 @@ func _ready():
 	animationTree.active = true 
 	
 func _process(_delta):
-	death()
+	pass
 	
 func _physics_process(_delta):
 	match state:
@@ -89,6 +89,16 @@ func cast_spell():
 
 # TODO: Implement dying animation
 func death():
+	self.visible = false
+	self.collision_layer = 0
+	self.collision_mask = 0
+	$Timer.start()
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("Enemy") and health > 0:
+		health -= 1
 	if health == 0:
-		self.queue_free()
-		get_tree().reload_current_scene()
+		death()
+
+func _on_timer_timeout():
+	get_tree().reload_current_scene()

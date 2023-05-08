@@ -892,18 +892,15 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 4
 layer_3/tile_data = PackedInt32Array(1245219, 851970, 4, 1245184, 786434, 4, 196609, 1, 0, 196610, 65537, 0, 196611, 131073, 0, 262147, 131073, 2, 262146, 65537, 2, 262145, 1, 2, 196619, 1, 0, 196620, 65537, 0, 196621, 131073, 0, 262157, 131073, 2, 262156, 65537, 2, 262155, 1, 2, 196639, 1, 0, 196640, 65537, 0, 196641, 131073, 0, 196634, 1, 0, 196635, 65537, 0, 196636, 131073, 0, 196629, 1, 0, 196630, 65537, 0, 196631, 131073, 0, 196624, 1, 0, 196625, 65537, 0, 196626, 131073, 0, 196614, 1, 0, 196615, 65537, 0, 196616, 131073, 0, 262150, 1, 2, 262151, 65537, 2, 262152, 131073, 2, 262160, 1, 2, 262161, 65537, 2, 262162, 131073, 2, 262165, 1, 2, 262166, 65537, 2, 262167, 131073, 2, 262170, 1, 2, 262171, 65537, 2, 262172, 131073, 2, 262175, 1, 2, 262176, 65537, 2, 262177, 131073, 2, 1179682, 131075, 3)
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("5_45lrb")]
+[node name="Player" parent="." instance=ExtResource("5_45lrb")]
 position = Vector2(395, 408)
-collision_mask = 2
 spell_speed = 500
 
 [node name="Slime" parent="." instance=ExtResource("5_b6op0")]
 position = Vector2(239, 238)
-collision_layer = 2
-collision_mask = 21
-
-[node name="Special Scroll" parent="Slime" instance=ExtResource("6_lxtip")]
-position = Vector2(317, 105)
 
 [node name="Fire scroll" parent="." instance=ExtResource("6_tlmhu")]
 position = Vector2(409, 341)
+
+[node name="Special Scroll" parent="." instance=ExtResource("6_lxtip")]
+position = Vector2(556, 343)

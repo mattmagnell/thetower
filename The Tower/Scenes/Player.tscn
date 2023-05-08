@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://doait7re2ibhk"]
+[gd_scene load_steps=30 format=3 uid="uid://doait7re2ibhk"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bvvuv"]
 [ext_resource type="Texture2D" uid="uid://c7ritfx4bygib" path="res://Assets/Characters/TempPlayerSheet.png" id="1_hith1"]
@@ -451,10 +451,15 @@ graph_offset = Vector2(276.547, -32.8157)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_jeur3"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rlgsw"]
+radius = 9.0
+height = 32.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 texture_filter = 1
-collision_mask = 6
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_bvvuv")
 speed = 125
 accel = 15
@@ -497,3 +502,16 @@ parameters/walk/blend_position = Vector2(0.000717878, 0.699346)
 
 [node name="SpellPoint" type="Marker2D" parent="."]
 position = Vector2(7, -9)
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="hurtboxCollision" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_rlgsw")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

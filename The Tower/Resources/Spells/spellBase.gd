@@ -1,7 +1,7 @@
 extends RigidBody2D
 class_name spellBase
 
-@export var max_distance = 100
+@export var max_distance = 200
 var start_position
 
 func maxThrowDistance():
