@@ -29,14 +29,17 @@ var spells = []
 # MAIN PROCESS #
 ################
 func _input(event):
-	for i in range(3):
-		if event.is_action_pressed("spell_" + str(i + 1)):
-			selected_spell = spells[i]
-	print('Spell: ', selected_spell)
+		if event.is_action_pressed("spell_1"):
+			selected_spell = spells[0]
+		if event.is_action_pressed("spell_2"):
+			selected_spell = spells[1]
+		if event.is_action_pressed("spell_3") and spells[2] != null:
+			selected_spell = spells[2]
+
 	
 func _ready():
 	animationTree.active = true 
-	spells = [base_spell, fire_ball]
+	spells = [base_spell, fire_ball, null]
 	selected_spell = base_spell
 	
 func _process(_delta):

@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/TestChamber.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SpellManager="*res://Scripts/SpellManager.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
