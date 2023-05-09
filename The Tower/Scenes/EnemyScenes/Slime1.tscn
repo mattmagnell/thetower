@@ -33,5 +33,3 @@ collision_mask = 16
 
 [node name="hurtboxCollision" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource("CircleShape2D_xvtff")
-
-[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

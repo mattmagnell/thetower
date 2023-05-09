@@ -13,5 +13,5 @@ func maxThrowDistance():
 func _physics_process(_delta):
 	maxThrowDistance()
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	queue_free()

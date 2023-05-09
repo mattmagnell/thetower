@@ -15,19 +15,19 @@ var debuff
 func _ready():
 	patrol_points = [global_position + patrol_points[0], global_position + patrol_points[1]]
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	match state:
 		State.PATROL:
 			death_check()
-			patrol(delta)
+			patrol()
 		State.CHASE:
 			death_check()
-			chase(delta)
+			chase()
 		State.DEAD:
-			dead(delta)
+			dead()
 			
 
-func patrol(delta):
+func patrol():
 	var target = patrol_points[current_patrol_point]
 	var direction = (target - global_position).normalized()
 	var distance_to_target = global_position.distance_to(target)
@@ -36,19 +36,17 @@ func patrol(delta):
 		velocity = direction * speed
 		move_and_slide()
 	else:
-		current_patrol_point = (current_patrol_point + 1) % patrol_points.size()
+		current_patrol_point = (current_patrol_point + 1) % patrol_points.siaze()
 
-func chase(delta):
+func chase():
 	pass
 	
 func death_check():
 	if health <= 0:
-		health = 0
 		state = State.DEAD
 		
-func dead(delta):
+func dead():
 	health = 0
-	emit_signal("enemy_killed", global_position)
 	queue_free()
 	
 		
