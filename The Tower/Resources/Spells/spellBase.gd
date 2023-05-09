@@ -2,19 +2,16 @@ extends RigidBody2D
 class_name spellBase
 
 @export var max_distance = 200
-var start_position
+@export var attack_power: int
+@export var spell_speed = 500
+var start_position = Vector2.ZERO
 
 func maxThrowDistance():
 	if global_position.distance_to(start_position) > max_distance:
 		queue_free()
 
-func _ready():
-	start_position = global_position
-
 func _physics_process(_delta):
 	maxThrowDistance()
 
-func _on_Spell_body_entered(body):
+func _on_body_entered(body):
 	queue_free()
-
-

@@ -18,14 +18,26 @@ enum {
 }
 
 # spell variables
-@export var spell_speed = 250
-var base_spell = preload("res://Scenes/Spells/Circle/CircleFilled.tscn")
+#@export var spell_speed = 250
+var base_spell = preload("res://Scenes/Spells/Circle/BallFilled.tscn")
+var fire_ball = preload("res://Scenes/Spells/Circle/BallFire.tscn")
+var selected_spell
+var spells = []
+
 
 ################
 # MAIN PROCESS #
 ################
+func _input(event):
+	for i in range(3):
+		if event.is_action_pressed("spell_" + str(i + 1)):
+			selected_spell = spells[i]
+	print('Spell: ', selected_spell)
+	
 func _ready():
 	animationTree.active = true 
+	spells = [base_spell, fire_ball]
+	selected_spell = base_spell
 	
 func _process(_delta):
 	pass
@@ -78,10 +90,11 @@ func mouse_look():
 
 # Instance spell #
 func cast_spell():
-	var spell_instance = base_spell.instantiate()
+	var spell_instance = selected_spell.instantiate()
 	var spawn_position = $SpellPoint.global_position
 	spell_instance.global_position = spawn_position
-	spell_instance.linear_velocity = (get_global_mouse_position() - spawn_position).normalized() * spell_speed
+	spell_instance.start_position = spawn_position
+	spell_instance.linear_velocity = (get_global_mouse_position() - spawn_position).normalized() * spell_instance.spell_speed
 	get_parent().add_child(spell_instance)
 
 	state = MOVE
