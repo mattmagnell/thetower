@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr1dlxb1dbi4l"]
+
+[ext_resource type="Texture2D" uid="uid://doaa6vg837usv" path="res://Assets/Enemies/Free Sprites 1x.png" id="1_h62mv"]
+[ext_resource type="Script" path="res://Scripts/shield_bearer.gd" id="1_idejc"]
+[ext_resource type="PackedScene" uid="uid://b6oclkxfqyi6i" path="res://Scenes/hurtbox.tscn" id="2_4pdyl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfxer"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqvr6"]
+radius = 145.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygjvt"]
+size = Vector2(10, 5)
+
+[node name="ShieldBearer" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_idejc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dfxer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h62mv")
+offset = Vector2(0, -8)
+hframes = 6
+vframes = 5
+frame = 3
+
+[node name="AgroRange" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgroRange"]
+shape = SubResource("CircleShape2D_kqvr6")
+debug_color = Color(0.988235, 0, 0.298039, 0.141176)
+
+[node name="hurtbox" parent="." instance=ExtResource("2_4pdyl")]
+position = Vector2(-1, -14)
+script = null
+
+[node name="hurtboxCollision" parent="hurtbox" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_ygjvt")
+
+[connection signal="body_entered" from="AgroRange" to="." method="_on_agro_range_body_entered"]
+[connection signal="body_exited" from="AgroRange" to="." method="_on_agro_range_body_exited"]
+[connection signal="area_entered" from="hurtbox" to="hurtbox" method="_on_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+
+[editable path="hurtbox"]

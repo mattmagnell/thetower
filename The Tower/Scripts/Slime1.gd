@@ -36,7 +36,7 @@ func patrol():
 		velocity = direction * speed
 		move_and_slide()
 	else:
-		current_patrol_point = (current_patrol_point + 1) % patrol_points.siaze()
+		current_patrol_point = (current_patrol_point + 1) % patrol_points.size()
 
 func chase():
 	pass
@@ -48,5 +48,8 @@ func death_check():
 func dead():
 	health = 0
 	queue_free()
+	
+func _on_hurtbox_body_entered(body):
+	health -= body.attack_power
 	
 		
