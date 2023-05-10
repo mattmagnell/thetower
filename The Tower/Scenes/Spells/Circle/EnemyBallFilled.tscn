@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdl8e5uuk3x37"]
+
+[ext_resource type="Script" path="res://Scripts/SpellBasic.gd" id="1_58hng"]
+[ext_resource type="Texture2D" uid="uid://c683ajmk35qwx" path="res://Assets/Items/IT001 SpellTest.png" id="2_fra2e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hr2c7"]
+radius = 5.38516
+
+[node name="BallFilled" type="RigidBody2D" groups=["Enemy"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 5
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_58hng")
+attack_power = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fra2e")
+hframes = 8
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hr2c7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

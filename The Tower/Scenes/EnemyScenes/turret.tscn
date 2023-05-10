@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cehhcyf1n3uom"]
+
+[ext_resource type="Script" path="res://Scripts/turret.gd" id="1_eo7wh"]
+[ext_resource type="Texture2D" uid="uid://doaa6vg837usv" path="res://Assets/Enemies/Free Sprites 1x.png" id="2_ettg1"]
+[ext_resource type="PackedScene" uid="uid://b6oclkxfqyi6i" path="res://Scenes/hurtbox.tscn" id="3_r6csh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dfxer"]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqvr6"]
+radius = 145.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4kuo4"]
+radius = 4.0
+
+[node name="turret" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_eo7wh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dfxer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ettg1")
+offset = Vector2(1, 0)
+hframes = 6
+vframes = 5
+
+[node name="AgroRange" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AgroRange"]
+shape = SubResource("CircleShape2D_kqvr6")
+debug_color = Color(0.988235, 0, 0.298039, 0.141176)
+
+[node name="hurtbox" parent="." groups=["Enemy"] instance=ExtResource("3_r6csh")]
+script = null
+
+[node name="hurtboxCollision" parent="hurtbox" index="0"]
+shape = SubResource("CircleShape2D_4kuo4")
+debug_color = Color(0.105882, 0.647059, 0, 0.419608)
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AgroRange" to="." method="_on_agro_range_body_entered"]
+[connection signal="body_exited" from="AgroRange" to="." method="_on_agro_range_body_exited"]
+[connection signal="area_entered" from="hurtbox" to="hurtbox" method="_on_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+
+[editable path="hurtbox"]

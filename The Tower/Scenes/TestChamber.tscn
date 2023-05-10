@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://6hnnu6v50oj5"]
+[gd_scene load_steps=17 format=3 uid="uid://6hnnu6v50oj5"]
 
 [ext_resource type="Texture2D" uid="uid://jbk65ousrtcn" path="res://Assets/Terrain/TX Tileset Grass.png" id="1_gbvkd"]
 [ext_resource type="Texture2D" uid="uid://cq2nfxrgtuuf2" path="res://Assets/Terrain/TX Tileset Stone Ground.png" id="2_6kqkq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fmgsgbapiic" path="res://Scenes/scrolls and pages/special_scroll.tscn" id="6_lxtip"]
 [ext_resource type="PackedScene" uid="uid://tjelqt38qvc8" path="res://Scenes/scrolls and pages/fire_scroll.tscn" id="6_tlmhu"]
 [ext_resource type="PackedScene" uid="uid://cr1dlxb1dbi4l" path="res://Scenes/EnemyScenes/shield_bearer.tscn" id="8_0buru"]
+[ext_resource type="PackedScene" uid="uid://cehhcyf1n3uom" path="res://Scenes/EnemyScenes/turret.tscn" id="9_gkovs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
 
@@ -903,6 +904,9 @@ position = Vector2(239, 238)
 [node name="ShieldBearer" parent="." instance=ExtResource("8_0buru")]
 position = Vector2(402, 245)
 collision_mask = 21
+
+[node name="turret" parent="." instance=ExtResource("9_gkovs")]
+position = Vector2(567, 243)
 
 [node name="Fire scroll" parent="." instance=ExtResource("6_tlmhu")]
 position = Vector2(409, 341)
