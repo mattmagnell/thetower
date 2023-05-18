@@ -1,16 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://b413heuf4now8"]
 
 [ext_resource type="Script" path="res://Items/Repo/ITEM_SPRITE.gd" id="1_0vap0"]
-[ext_resource type="Texture2D" uid="uid://3wymxu6xgvq8" path="res://Items/Repo/assets/mana_potion.png" id="2_3ba0d"]
-[ext_resource type="Resource" uid="uid://bwbfwhrkxqw2q" path="res://Items/Repo/mana_potion.tres" id="2_7cenb"]
+[ext_resource type="Texture2D" uid="uid://3wymxu6xgvq8" path="res://Items/Repo/assets/mana_potion.png" id="1_jnqq3"]
+[ext_resource type="Resource" uid="uid://bwbfwhrkxqw2q" path="res://Items/Repo/mana_potion.tres" id="3_dp61t"]
 
 [node name="ITEM_SPRITE" type="TextureRect"]
-texture = ExtResource("2_3ba0d")
+anchors_preset = -1
+anchor_right = 0.113
+anchor_bottom = 0.188
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -103.176
+offset_bottom = -76.824
+texture = ExtResource("1_jnqq3")
+stretch_mode = 3
 script = ExtResource("1_0vap0")
-MY_ITEM = ExtResource("2_7cenb")
+MY_ITEM = ExtResource("3_dp61t")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 1.0
+offset_right = 10.0
+offset_bottom = 23.0
 bbcode_enabled = true
 text = "0"
+fit_content = true

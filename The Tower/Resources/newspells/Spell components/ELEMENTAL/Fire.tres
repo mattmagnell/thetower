@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SPELL_COMPONENTS" load_steps=2 format=3 uid="uid://b7ccjgkchjtvw"]
+
+[ext_resource type="Script" path="res://Resources/newspells/Spell components/SpellComponent.gd" id="1_7gqo2"]
+
+[resource]
+script = ExtResource("1_7gqo2")
+name = "Fire I"
+type = "Elemental"
+effects = {
+"base_damage": 1,
+"burn_damage": 1,
+"burn_duration": 3,
+"mp_cost": 1
+}

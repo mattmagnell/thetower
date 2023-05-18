@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SPELL_COMPONENTS" load_steps=2 format=3 uid="uid://cn2placykghax"]
+
+[ext_resource type="Script" path="res://Resources/newspells/Spell components/SpellComponent.gd" id="1_07l67"]
+
+[resource]
+script = ExtResource("1_07l67")
+name = "Intensity I"
+type = "Special"
+effects = {
+"base_damage": 1,
+"intensity": 2,
+"mp_cost": 1
+}

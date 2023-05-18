@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="INTENSITY" load_steps=2 format=3 uid="uid://cjn5kdkbxifop"]
+
+[ext_resource type="Script" path="res://Items/spells/intensity.gd" id="1_dxsnd"]
+
+[resource]
+script = ExtResource("1_dxsnd")
+intense_damage = 1
+special = true
+spell_level = 1
+mana_cost = 1
+ITEM_NAME = "Intensity I"
+QUANTITY = 0
+HOVER_TEXT = ""

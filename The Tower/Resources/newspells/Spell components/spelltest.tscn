@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f3288yn4cn4j"]
+
+[ext_resource type="Script" path="res://Resources/newspells/Spell components/spelltest.gd" id="1_mfdju"]
+
+[node name="spelltest" type="Node"]
+script = ExtResource("1_mfdju")
