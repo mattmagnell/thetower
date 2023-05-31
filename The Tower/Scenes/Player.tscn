@@ -475,7 +475,7 @@ texture = ExtResource("1_hith1")
 offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
-frame = 45
+frame = 32
 metadata/_edit_group_ = true
 
 [node name="Clothing" type="Sprite2D" parent="CharacterModel"]
@@ -484,7 +484,7 @@ texture = ExtResource("3_12yy0")
 offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
-frame = 45
+frame = 32
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -501,7 +501,7 @@ parameters/idle/blend_position = Vector2(0, 0)
 parameters/walk/blend_position = Vector2(0.000717878, 0.699346)
 
 [node name="SpellPoint" type="Marker2D" parent="."]
-position = Vector2(7, -9)
+position = Vector2(-5, -8)
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_mask = 2

@@ -28,3 +28,9 @@ func _get_configuration_warning():
 	else:
 		return ""
 
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("Player"):
+		var item = spell 
+		var inventory = body.inventory
+		inventory.add_items(item)
+		self.queue_free()  # Remove the item from the scene

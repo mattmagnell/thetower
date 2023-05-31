@@ -7,3 +7,8 @@ extends Node2D
 
 func use():
 	pass  
+
+# Define a signal for when the item is picked up
+signal item_picked_up(item)
+
+

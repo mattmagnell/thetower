@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgfk3q265ofrw"]
+[gd_scene load_steps=3 format=3 uid="uid://cgfk3q265ofrw"]
 
 [ext_resource type="Script" path="res://Resources/newspells/Spell components/SpellScroll.gd" id="1_845mf"]
-[ext_resource type="Script" path="res://Items/ScrollSprite.gd" id="4_nylal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twwll"]
 
@@ -14,4 +13,5 @@ script = ExtResource("1_845mf")
 shape = SubResource("RectangleShape2D_twwll")
 
 [node name="ScrollSprite" type="Sprite2D" parent="Area2D"]
-script = ExtResource("4_nylal")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
