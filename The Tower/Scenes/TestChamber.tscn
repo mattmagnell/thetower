@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bg57idvo45cyb" path="res://Assets/Terrain/TX Tileset Wall.png" id="3_404vw"]
 [ext_resource type="PackedScene" uid="uid://doait7re2ibhk" path="res://Scenes/Player.tscn" id="5_45lrb"]
 [ext_resource type="PackedScene" uid="uid://csb8r0xsabd6g" path="res://Scenes/EnemyScenes/Slime1.tscn" id="5_b6op0"]
-[ext_resource type="PackedScene" uid="uid://b7fmgsgbapiic" path="res://Scenes/scrolls and pages/special_scroll.tscn" id="6_lxtip"]
-[ext_resource type="PackedScene" uid="uid://tjelqt38qvc8" path="res://Scenes/scrolls and pages/fire_scroll.tscn" id="6_tlmhu"]
 [ext_resource type="PackedScene" uid="uid://cr1dlxb1dbi4l" path="res://Scenes/EnemyScenes/shield_bearer.tscn" id="8_0buru"]
+[ext_resource type="PackedScene" uid="uid://cgfk3q265ofrw" path="res://Items/spell_scroll.tscn" id="8_yrqv7"]
+[ext_resource type="Resource" uid="uid://b7ccjgkchjtvw" path="res://Resources/newspells/Spell components/ELEMENTAL/Fire.tres" id="9_52j2y"]
 [ext_resource type="PackedScene" uid="uid://cehhcyf1n3uom" path="res://Scenes/EnemyScenes/turret.tscn" id="9_gkovs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
@@ -908,8 +908,5 @@ collision_mask = 21
 [node name="turret" parent="." instance=ExtResource("9_gkovs")]
 position = Vector2(567, 243)
 
-[node name="Fire scroll" parent="." instance=ExtResource("6_tlmhu")]
-position = Vector2(409, 341)
-
-[node name="Special Scroll" parent="." instance=ExtResource("6_lxtip")]
-position = Vector2(556, 343)
+[node name="SpellScroll" parent="." instance=ExtResource("8_yrqv7")]
+spell = ExtResource("9_52j2y")

@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="SPELL_COMPONENTS" load_steps=2 format=3 uid="uid://cn2placykghax"]
+[gd_resource type="Resource" script_class="SPELL_COMPONENTS" load_steps=3 format=3 uid="uid://cn2placykghax"]
 
 [ext_resource type="Script" path="res://Resources/newspells/Spell components/SpellComponent.gd" id="1_07l67"]
+[ext_resource type="Texture2D" uid="uid://bqm425ai12x4g" path="res://Assets/Items/IntensityScroll.png" id="2_0fv8u"]
 
 [resource]
 script = ExtResource("1_07l67")
 name = "Intensity I"
+description = "An intensity spell component"
 type = "Special"
 effects = {
 "base_damage": 1,
 "intensity": 2,
 "mp_cost": 1
 }
+texture = ExtResource("2_0fv8u")

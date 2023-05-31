@@ -1,5 +1,5 @@
 @tool
-extends ITEM
+extends ItemResource
 
 class_name MAGIC_ITEM
 
