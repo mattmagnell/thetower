@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6hnnu6v50oj5"]
+[gd_scene load_steps=21 format=3 uid="uid://6hnnu6v50oj5"]
 
 [ext_resource type="Texture2D" uid="uid://jbk65ousrtcn" path="res://Assets/Terrain/TX Tileset Grass.png" id="1_gbvkd"]
 [ext_resource type="Texture2D" uid="uid://cq2nfxrgtuuf2" path="res://Assets/Terrain/TX Tileset Stone Ground.png" id="2_6kqkq"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cn2placykghax" path="res://Resources/newspells/Spell components/SPECIAL/Intensity.tres" id="9_pskrc"]
 [ext_resource type="Texture2D" uid="uid://bqm425ai12x4g" path="res://Assets/Items/IntensityScroll.png" id="10_utmpq"]
 [ext_resource type="Texture2D" uid="uid://bolxbrnd76hoi" path="res://Assets/Items/FireScroll.png" id="12_g1ijo"]
+[ext_resource type="PackedScene" uid="uid://is6wfxbwjnkm" path="res://Scenes/inventory_gui.tscn" id="13_xojnn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
 
@@ -922,3 +923,9 @@ position = Vector2(240, 316)
 spell = ExtResource("9_52j2y")
 item_name = "Fire I Scroll"
 icon = ExtResource("12_g1ijo")
+
+[node name="InventoryGUI" parent="." instance=ExtResource("13_xojnn")]
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+metadata/_edit_use_anchors_ = true

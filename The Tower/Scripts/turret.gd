@@ -9,15 +9,15 @@ var state = State.IDLE
 @onready var attack_timer = $AttackTimer
 var DIRECTIONS = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
 
-var player
+var player = null
 var debuff
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	match state:
 		State.IDLE:
 			idle_behavior()
 		State.ATTACK:
-			attack_behavior(player)
+			attack_behavior()
 		State.DEAD:
 			dead()
 
@@ -29,7 +29,7 @@ func death_check():
 	if health <= 0:
 		state = State.DEAD
 		
-func attack_behavior(player):
+func attack_behavior():
 	death_check()
 	if attack_timer.is_stopped():
 		turret_attack()

@@ -8,12 +8,13 @@ var state = State.IDLE
 var player
 var debuff
 
-func _physics_process(delta):
+func _physics_process(_delta):
+
 	match state:
 		State.IDLE:
 			idle_behavior()
 		State.CHASE:
-			chase_behavior(player)
+			chase_behavior()
 		State.DEAD:
 			dead()
 
@@ -25,7 +26,7 @@ func death_check():
 	if health <= 0:
 		state = State.DEAD
 		
-func chase_behavior(player):
+func chase_behavior():
 	death_check()
 	velocity = (player.global_position - global_position).normalized() * speed
 	move_and_slide()

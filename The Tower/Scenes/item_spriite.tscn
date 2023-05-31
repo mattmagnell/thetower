@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbqww8oyrrsqr"]
 
-[ext_resource type="Texture2D" uid="uid://3wymxu6xgvq8" path="res://Items/Repo/assets/mana_potion.png" id="1_43lik"]
+[ext_resource type="Texture2D" uid="uid://bolxbrnd76hoi" path="res://Assets/Items/FireScroll.png" id="1_lsncs"]
+[ext_resource type="Resource" uid="uid://b7ccjgkchjtvw" path="res://Resources/newspells/Spell components/ELEMENTAL/Fire.tres" id="2_8ywax"]
 [ext_resource type="Script" path="res://Scripts/ItemSpriite.gd" id="2_rcbd1"]
-[ext_resource type="Resource" uid="uid://bwbfwhrkxqw2q" path="res://Items/Repo/mana_potion.tres" id="3_vk7j8"]
 
 [node name="ItemSpriite" type="TextureRect"]
 anchors_preset = -1
@@ -10,9 +10,9 @@ anchor_right = 0.014
 anchor_bottom = 0.025
 offset_right = -0.128
 offset_bottom = -0.200001
-texture = ExtResource("1_43lik")
+texture = ExtResource("1_lsncs")
 script = ExtResource("2_rcbd1")
-MY_ITEM = ExtResource("3_vk7j8")
+MY_ITEM = ExtResource("2_8ywax")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1

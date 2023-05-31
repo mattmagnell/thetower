@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SPELL_COMPONENTS" load_steps=2 format=3 uid="uid://bnf8y2itla8e1"]
+
+[ext_resource type="Script" path="res://Resources/newspells/Spell components/SpellComponent.gd" id="1_l2jb5"]
+
+[resource]
+script = ExtResource("1_l2jb5")
+name = "ater"
+description = ""
+type = ""
+effects = {}

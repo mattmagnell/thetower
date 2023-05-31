@@ -43,7 +43,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-5, -8)]
 }
 
@@ -289,7 +289,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-4, -10), Vector2(0, -11), Vector2(4, -10), Vector2(3, -10), Vector2(-4, -9), Vector2(-5, -10)]
 }
 
@@ -330,7 +330,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-3, -7), Vector2(2, -7), Vector2(5, -9), Vector2(3, -8.5), Vector2(-2, -8), Vector2(-6, -8), Vector2(-3, -7)]
 }
 
@@ -371,7 +371,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(5, -7), Vector2(7, -8), Vector2(6, -9), Vector2(5, -10), Vector2(5, -9), Vector2(7, -9), Vector2(5, -7)]
 }
 
@@ -441,7 +441,7 @@ reset = false
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7lc5n"]
 states/End/position = Vector2(572.5, 74.0368)
-states/Start/position = Vector2(325.5, 73.9393)
+states/Start/position = Vector2(325.5, 74.0368)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_c77xa")
 states/idle/position = Vector2(438.06, 73.8419)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_pqhkp")
@@ -475,7 +475,7 @@ texture = ExtResource("1_hith1")
 offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
-frame = 32
+frame = 40
 metadata/_edit_group_ = true
 
 [node name="Clothing" type="Sprite2D" parent="CharacterModel"]
@@ -484,7 +484,7 @@ texture = ExtResource("3_12yy0")
 offset = Vector2(0, -10)
 hframes = 8
 vframes = 8
-frame = 32
+frame = 40
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -498,10 +498,10 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_jeur3")
 parameters/idle/blend_position = Vector2(0, 0)
-parameters/walk/blend_position = Vector2(0.000717878, 0.699346)
+parameters/walk/blend_position = Vector2(1.00883, 0.0131004)
 
 [node name="SpellPoint" type="Marker2D" parent="."]
-position = Vector2(-5, -8)
+position = Vector2(5, -7)
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_mask = 2

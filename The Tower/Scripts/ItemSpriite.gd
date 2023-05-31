@@ -15,7 +15,7 @@ func _setItem(newItem : Resource):
 	
 	print("setting item!")
 	MY_ITEM = newItem 
-	self.texture = MY_ITEM.getTexture()
+	self.texture = MY_ITEM.texture
 	if MyLabel != null:
 		MyLabel.text = str(newItem.getQuantity())
 	

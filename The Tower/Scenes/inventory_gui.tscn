@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://is6wfxbwjnkm"]
+[gd_scene load_steps=2 format=3 uid="uid://is6wfxbwjnkm"]
+
+[ext_resource type="Script" path="res://Inventory.gd" id="1_beyi4"]
 
 [node name="InventoryGUI" type="TextureRect"]
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = -1
+script = ExtResource("1_beyi4")
