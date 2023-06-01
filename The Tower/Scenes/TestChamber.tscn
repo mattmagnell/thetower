@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://cn2placykghax" path="res://Resources/newspells/Spell components/SPECIAL/Intensity.tres" id="9_pskrc"]
 [ext_resource type="Texture2D" uid="uid://bqm425ai12x4g" path="res://Assets/Items/IntensityScroll.png" id="10_utmpq"]
 [ext_resource type="Texture2D" uid="uid://bolxbrnd76hoi" path="res://Assets/Items/FireScroll.png" id="12_g1ijo"]
-[ext_resource type="PackedScene" uid="uid://is6wfxbwjnkm" path="res://Scenes/inventory_gui.tscn" id="13_xojnn"]
+[ext_resource type="PackedScene" uid="uid://is6wfxbwjnkm" path="res://Scenes/inventory_gui.tscn" id="13_76rnw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
 
@@ -866,9 +866,11 @@ sources/1 = SubResource("TileSetAtlasSource_h4ebo")
 sources/2 = SubResource("TileSetAtlasSource_2r7o8")
 sources/3 = SubResource("TileSetAtlasSource_ld3c4")
 
-[node name="TestChamber" type="Node2D"]
+[node name="World" type="Node"]
 
-[node name="TileMap" type="TileMap" parent="." groups=["Environment"]]
+[node name="TestChamber" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="TestChamber" groups=["Environment"]]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_gdwsd")
 cell_quadrant_size = 32
@@ -898,34 +900,44 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 4
 layer_3/tile_data = PackedInt32Array(1245219, 851970, 4, 1245184, 786434, 4, 196609, 1, 0, 196610, 65537, 0, 196611, 131073, 0, 262147, 131073, 2, 262146, 65537, 2, 262145, 1, 2, 196619, 1, 0, 196620, 65537, 0, 196621, 131073, 0, 262157, 131073, 2, 262156, 65537, 2, 262155, 1, 2, 196639, 1, 0, 196640, 65537, 0, 196641, 131073, 0, 196634, 1, 0, 196635, 65537, 0, 196636, 131073, 0, 196629, 1, 0, 196630, 65537, 0, 196631, 131073, 0, 196624, 1, 0, 196625, 65537, 0, 196626, 131073, 0, 196614, 1, 0, 196615, 65537, 0, 196616, 131073, 0, 262150, 1, 2, 262151, 65537, 2, 262152, 131073, 2, 262160, 1, 2, 262161, 65537, 2, 262162, 131073, 2, 262165, 1, 2, 262166, 65537, 2, 262167, 131073, 2, 262170, 1, 2, 262171, 65537, 2, 262172, 131073, 2, 262175, 1, 2, 262176, 65537, 2, 262177, 131073, 2, 1179682, 131075, 3)
 
-[node name="Player" parent="." instance=ExtResource("5_45lrb")]
-position = Vector2(395, 408)
+[node name="Player" parent="TestChamber" instance=ExtResource("5_45lrb")]
+position = Vector2(407, 451)
 collision_layer = 1
 
-[node name="Slime" parent="." instance=ExtResource("5_b6op0")]
+[node name="Slime" parent="TestChamber" instance=ExtResource("5_b6op0")]
 position = Vector2(239, 238)
 
-[node name="ShieldBearer" parent="." instance=ExtResource("8_0buru")]
+[node name="ShieldBearer" parent="TestChamber" instance=ExtResource("8_0buru")]
 position = Vector2(402, 245)
 collision_mask = 21
 
-[node name="turret" parent="." instance=ExtResource("9_gkovs")]
+[node name="turret" parent="TestChamber" instance=ExtResource("9_gkovs")]
 position = Vector2(567, 243)
 
-[node name="SpellScroll - Intensity" parent="." instance=ExtResource("8_yrqv7")]
-position = Vector2(166, 315)
+[node name="SpellScroll - Intensity" parent="TestChamber" instance=ExtResource("8_yrqv7")]
+position = Vector2(450, 446)
 spell = ExtResource("9_pskrc")
 item_name = "Intensity I Scroll"
 icon = ExtResource("10_utmpq")
 
-[node name="SpellScroll" parent="." instance=ExtResource("8_yrqv7")]
-position = Vector2(240, 316)
+[node name="SpellScroll" parent="TestChamber" instance=ExtResource("8_yrqv7")]
+position = Vector2(362, 447)
 spell = ExtResource("9_52j2y")
 item_name = "Fire I Scroll"
 icon = ExtResource("12_g1ijo")
 
-[node name="InventoryGUI" parent="." instance=ExtResource("13_xojnn")]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
 anchors_preset = 0
-offset_right = 32.0
-offset_bottom = 32.0
-metadata/_edit_use_anchors_ = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inventory" parent="UI" instance=ExtResource("13_76rnw")]
+z_index = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.622
+offset_left = 14.0
+offset_top = 534.0
+offset_right = 9.12
+offset_bottom = 534.0

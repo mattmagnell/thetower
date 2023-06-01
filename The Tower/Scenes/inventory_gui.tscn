@@ -2,7 +2,77 @@
 
 [ext_resource type="Script" path="res://Inventory.gd" id="1_beyi4"]
 
-[node name="InventoryGUI" type="TextureRect"]
-custom_minimum_size = Vector2(32, 32)
-anchors_preset = -1
+[node name="Inventory" type="Control"]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1092.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_beyi4")
+
+[node name="ItemSlots" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 3
+
+[node name="Slot0" type="Button" parent="ItemSlots"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Texture0" type="TextureRect" parent="ItemSlots/Slot0"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Slot1" type="Button" parent="ItemSlots"]
+layout_mode = 2
+
+[node name="Texture1" type="TextureRect" parent="ItemSlots/Slot1"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Slot2" type="Button" parent="ItemSlots"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Texture1" type="TextureRect" parent="ItemSlots/Slot2"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Slot3" type="Button" parent="ItemSlots"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Texture1" type="TextureRect" parent="ItemSlots/Slot3"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+
+[node name="Slot4" type="Button" parent="ItemSlots"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Texture1" type="TextureRect" parent="ItemSlots/Slot4"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Slot5" type="Button" parent="ItemSlots"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Texture1" type="TextureRect" parent="ItemSlots/Slot5"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0

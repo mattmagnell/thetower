@@ -24,7 +24,8 @@ var fire_ball = preload("res://Scenes/Spells/Circle/BallFire.tscn")
 var selected_spell
 var spells = []
 
-var inventory = preload("res://Inventory.gd").new()
+var inventory_scene = preload("res://Scenes/inventory_gui.tscn")
+var inventory = inventory_scene.instantiate()
 
 ################
 # MAIN PROCESS #
