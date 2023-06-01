@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://cn2placykghax" path="res://Resources/newspells/Spell components/SPECIAL/Intensity.tres" id="9_pskrc"]
 [ext_resource type="Texture2D" uid="uid://bqm425ai12x4g" path="res://Assets/Items/IntensityScroll.png" id="10_utmpq"]
 [ext_resource type="Texture2D" uid="uid://bolxbrnd76hoi" path="res://Assets/Items/FireScroll.png" id="12_g1ijo"]
-[ext_resource type="PackedScene" uid="uid://is6wfxbwjnkm" path="res://Scenes/inventory_gui.tscn" id="13_76rnw"]
+[ext_resource type="PackedScene" uid="uid://bgh3c4bc4g1xl" path="res://Scenes/inventorylist.tscn" id="13_xlhpd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_td1t6"]
 
@@ -929,15 +929,18 @@ icon = ExtResource("12_g1ijo")
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 15.0
+offset_top = 520.0
+offset_right = 15.0
+offset_bottom = 520.0
+metadata/_edit_group_ = true
 
-[node name="Inventory" parent="UI" instance=ExtResource("13_76rnw")]
-z_index = 0
+[node name="Inventory" parent="UI" instance=ExtResource("13_xlhpd")]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.622
-offset_left = 14.0
-offset_top = 534.0
-offset_right = 9.12
-offset_bottom = 534.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 60.0
+offset_bottom = 40.0
+grow_horizontal = 1
+grow_vertical = 1
